@@ -16,9 +16,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-@RequiredArgsConstructor
 public class CodeExecutorController {
     private final CodeExecutorService codeExecutorService;
+
+    public CodeExecutorController(CodeExecutorService codeExecutorService) {
+        this.codeExecutorService = codeExecutorService;
+    }
 
     @GetMapping({"/","/execute"})
     public String index() {
